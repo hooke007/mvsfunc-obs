@@ -56,7 +56,6 @@ import vapoursynth as vs
 import functools
 import math
 from collections.abc import Sequence
-from ._metadata import __version__
 
 if not hasattr(vs, 'core'):
     core = vs.get_core()
@@ -66,6 +65,7 @@ else:
 ################################################################################################################################
 
 
+MvsFuncVersion = 11
 VSMaxPlaneNum = 3
 
 
@@ -2329,12 +2329,12 @@ def AssumeCombed(clip, combed=True):
 ##         default: True
 ################################################################################################################################
 def CheckVersion(version, less=False, equal=True, greater=True):
-    if not less and __version__ < version:
-        raise ImportWarning(f'mvsfunc version ({__version__}) is less than the version ({version}) specified!')
-    if not equal and __version__ == version:
-        raise ImportWarning(f'mvsfunc version ({__version__}) is equal to the version ({version}) specified!')
-    if not greater and __version__ > version:
-        raise ImportWarning(f'mvsfunc version ({__version__}) is greater than the version ({version}) specified!')
+    if not less and MvsFuncVersion < version:
+        raise ImportWarning(f'mvsfunc version ({MvsFuncVersion}) is less than the version ({version}) specified!')
+    if not equal and MvsFuncVersion == version:
+        raise ImportWarning(f'mvsfunc version ({MvsFuncVersion}) is equal to the version ({version}) specified!')
+    if not greater and MvsFuncVersion > version:
+        raise ImportWarning(f'mvsfunc version ({MvsFuncVersion}) is greater than the version ({version}) specified!')
 
     return True
 ################################################################################################################################
